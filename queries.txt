@@ -1,0 +1,37 @@
+create table Employee(employee_id int primary key auto_increment,
+name varchar(30),
+email_id varchar(45),
+phone_number bigint,
+date_of_birth date,
+date_of_joining date,
+address varchar(75),
+department_id int references department(department_id),
+project_id int references project(project_id),
+role_id int references role(role_id))
+
+create table Department(department_id int primary key auto_increment,
+name varchar(30),
+description varchar(100))
+
+create table Project(project_id int primary key auto_increment,
+name varchar(30),
+description varchar(100),
+department_id int references department(department_id))
+
+create table Role(role_id int primary key auto_increment,
+name varchar(30),
+description varchar(100))
+
+insert into role(name,description) values('developer','asdasdasd')
+insert into role(name,description) values('tester','bghffs')
+
+insert into project(name,description,department_id) values('ABCD','asdasdbasdb',1)
+insert into project(name,description,department_id) values('BCDE','ioruyrtjgosdasdbasdb',2)
+
+insert into department(name,description) values('CWS','Customer Website services')
+insert into department(name,description) values('CCD','Customer Care Desktop')
+
+insert into employee(name,email_id,phone_number,date_of_birth,date_of_joining,address,department_id,project_id,role_id)
+values('sar','asdasd',12312441,str_to_date('22-04-1994','%d-%m-%Y'),str_to_date('22-09-2011','%d-%m-%Y'),'asdasdasd',1,2,2)
+
+update employee set email_id='asdsadas' where employee_id=1;
